@@ -1,4 +1,18 @@
-<div>
-  Rule item component
-</div>
+<form [formGroup]="ruleForm" class="rule-form">
+  <a class="button-remove" (click)="remove()">Remove</a>
+  <span class="rule-label">Type a full or partial url where you would like to display notifications.</span>
+  <div class="">
+    <select formControlName="type" class="type-list" (change)="changeType()">
+      <option
+      *ngFor="let value of types"
+      [value]="value.name"
+      >{{value.name}}</option>
+    </select>
+
+    <input type="url" class="rule-url" formControlName="url" (change)="changeUrl()" (keydown)="keydownUrl()"/>
+    <div class="rule-url-inline-error" *ngIf="ruleForm.controls.url.invalid">
+      <span>URL is Missing</span>
+    </div>
+  </div>
+</form>
 

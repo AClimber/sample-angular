@@ -1,5 +1,8 @@
-<div>
-  App component
-  <app-rule-list></app-rule-list>
+<div class="page-wrapper">
+  <p class="page-text">Where would you like to display your campaign?</p>
+  <app-rule-list (updateRules)="updateRules($event)"></app-rule-list>
+
+  <p class="page-text">Exclusion Rules</p>
+  <app-rule-list (updateRules)="updateExclusionRules($event)"></app-rule-list>
 </div>
 

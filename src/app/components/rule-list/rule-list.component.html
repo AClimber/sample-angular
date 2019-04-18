@@ -1,4 +1,15 @@
-<div>
-  Rule list component
+<div class="rule-container">
+  <app-rule-item *ngFor="let rule of rules"
+                 [rule]="rule"
+                 [types]="types"
+                 (changeRule)="changeRule(rule)"
+                 (removeRule)="removeRule($event)"
+  ></app-rule-item>
+
+  <button class="rule-button" (click)="addNewRule()">
+    <i class="button-icon-plus"></i>
+    <span>NEW RULE</span>
+  </button>
+
 </div>
 
