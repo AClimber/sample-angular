@@ -1,7 +1,7 @@
 <form [formGroup]="ruleForm" class="rule-form">
-  <a class="button-remove" (click)="remove()">Remove</a>
+  <a class="button-remove" (click)="remove()"></a>
   <span class="rule-label">Type a full or partial url where you would like to display notifications.</span>
-  <div class="">
+  <div class="rule-container">
     <select formControlName="type" class="type-list" (change)="changeType()">
       <option
       *ngFor="let value of types"
@@ -9,9 +9,9 @@
       >{{value.name}}</option>
     </select>
 
-    <input type="url" class="rule-url" formControlName="url" (change)="changeUrl()" (keydown)="keydownUrl()"/>
-    <div class="rule-url-inline-error" *ngIf="ruleForm.controls.url.invalid">
-      <span>URL is Missing</span>
+    <div class="rule-url-container">
+      <input type="url" [ngClass]="{'rule-url_invalid': ruleForm.controls.url.invalid}" class="rule-url" formControlName="url" (change)="changeUrl()" (keydown)="keydownUrl()"/>
+      <span class="rule-url-inline-error" *ngIf="ruleForm.controls.url.invalid">URL is Missing</span>
     </div>
   </div>
 </form>

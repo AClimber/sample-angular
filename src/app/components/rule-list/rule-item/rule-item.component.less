@@ -1,0 +1,48 @@
+.rule-form {
+  padding: 20px 20px 40px 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  .button-remove {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0 4px;
+    float: right;
+
+    &:after {
+      content: "\00d7"; //×
+    }
+  }
+
+  .rule-container {
+    display: flex;
+    height: 21px;
+
+    .type-list {
+      width: 30%;
+      margin-right: 20px;
+    }
+
+    .rule-url-container {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+
+      .rule-url {
+        &_invalid {
+          border-color: red;
+        }
+      }
+
+      .rule-url-inline-error {
+        background: rgba(0, 0, 0, 0.2);
+        color: red;
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+    }
+
+  }
+
+}
