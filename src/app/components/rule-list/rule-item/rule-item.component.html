@@ -1,4 +1,4 @@
-<form [formGroup]="ruleForm" class="rule-form">
+<form [formGroup]="ruleForm" class="rule-form" [ngClass]="{'rule-form_invalid': ruleForm.controls.url.invalid}">
   <a class="button-remove" (click)="remove()"></a>
   <span class="rule-label">Type a full or partial url where you would like to display notifications.</span>
   <div class="rule-container">
@@ -10,7 +10,7 @@
     </select>
 
     <div class="rule-url-container">
-      <input type="url" [ngClass]="{'rule-url_invalid': ruleForm.controls.url.invalid}" class="rule-url" formControlName="url" (change)="changeUrl()" (keydown)="keydownUrl()"/>
+      <input type="url" placeholder="Display URL" [ngClass]="{'rule-url_invalid': ruleForm.controls.url.invalid}" class="rule-url" formControlName="url" (change)="changeUrl()" (keydown)="keydownUrl()"/>
       <span class="rule-url-inline-error" *ngIf="ruleForm.controls.url.invalid">URL is Missing</span>
     </div>
   </div>

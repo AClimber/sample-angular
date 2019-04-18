@@ -1,27 +1,54 @@
+.common-input-field() {
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #2a2a2a;
+  outline: none;
+  .common-border(2px, #dadfe6, 5px);
+}
+
+.common-border(@size, @color, @radius) {
+  border: @size solid @color;
+  border-radius: @radius;
+}
+
 .rule-form {
   padding: 20px 20px 40px 20px;
-  border: 1px solid gray;
-  border-radius: 5px;
+  .common-border(1px, #ebeef2, 5px);
+  position: relative;
+  box-shadow: 3px 3px 0 0 rgba(235,238,242,.4);
   margin-bottom: 20px;
 
+  .rule-label {
+    color: #6c757d;
+    font-size: 13px;
+  }
+
   .button-remove {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 0 4px;
-    float: right;
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    color: #888;
+
+    &:hover {
+      color: #ff4c6a;
+    }
 
     &:after {
-      content: "\00d7"; //×
+      content: "×";
+      font-size: 20px;
     }
   }
 
   .rule-container {
     display: flex;
     height: 21px;
+    margin-top: 10px;
 
     .type-list {
       width: 30%;
+      height: 42px;
       margin-right: 20px;
+      .common-input-field();
     }
 
     .rule-url-container {
@@ -30,19 +57,22 @@
       width: 70%;
 
       .rule-url {
+        .common-input-field();
         &_invalid {
-          border-color: red;
+          border-color: #ff4c6a;
         }
       }
 
       .rule-url-inline-error {
-        background: rgba(0, 0, 0, 0.2);
-        color: red;
-        font-size: 12px;
-        padding: 5px 10px;
+        background: #4477880f;
+        color: #ff6780;
+        padding: 10px 15px;
+        border-radius: 5px;
       }
     }
-
   }
 
+  &_invalid {
+    padding-bottom: 70px;
+  }
 }
